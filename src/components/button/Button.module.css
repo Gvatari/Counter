@@ -1,0 +1,14 @@
+.button {
+    width: 108px;
+    height: 46px;
+    border: 20px;
+    background-color: chocolate;
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.disabled {
+    opacity: 0.5;
+    cursor: default;
+}

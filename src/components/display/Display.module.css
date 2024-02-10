@@ -1,0 +1,16 @@
+.display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #d76a6a;
+    width: 310px;
+    height: 170px;
+    border-radius: 18px;
+    font-size: 86px;
+    font-weight: 600;
+    color: black;
+}
+
+.__max {
+    color: brown;
+}
