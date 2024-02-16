@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import s from './Counter.module.css'
-import { Display } from '../display/Display';
+import { DisplayCounter } from '../display-counter/DisplayCounter';
 import { Button } from '../button/Button';
 
 export const Counter = () => {
@@ -13,7 +13,7 @@ export const Counter = () => {
 
     return (
         <div className={s.counter}>
-            <Display count={count} />
+            <DisplayCounter count={count} />
             <div className={s.wrapper}>
                 <Button disabled={count === 5} onClick={inc} title='Inc' />
                 <Button disabled={count === 0} onClick={resetConter} title='Reset' />

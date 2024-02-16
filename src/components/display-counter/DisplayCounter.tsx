@@ -5,7 +5,7 @@ type DiplayProps = {
     count: number
 }
 
-export const Display = ({count}: DiplayProps) => {
+export const DisplayCounter = ({count}: DiplayProps) => {
 
     const displayClasses = `${s.display} ${count === 5 ? s.__max : ''}`;
 
