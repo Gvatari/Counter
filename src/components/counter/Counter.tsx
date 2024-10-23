@@ -3,20 +3,30 @@ import s from './Counter.module.css'
 import { DisplayCounter } from '../display-counter/DisplayCounter';
 import { Button } from '../button/Button';
 
-export const Counter = () => {
+type CounterPropsType = {
+    count: number
+    inc: () => void
+    resetConter: () => void
+    maxValue: number
+    startValue: number
+    maxLocalVal: number
+    startLocalVal: number
+}
 
-    const [count, setCount] = useState<number>(0)
-
-    const inc = () => count < 5 && setCount(count + 1)    
-
-    const resetConter = () => setCount(0)
+export const Counter = ({ count, inc, resetConter, maxValue, startValue, maxLocalVal, startLocalVal }: CounterPropsType) => {
 
     return (
         <div className={s.counter}>
-            <DisplayCounter count={count} />
+            {maxLocalVal < 0 || startLocalVal < 0 || startLocalVal >= maxLocalVal
+                ? <span>Incorrect value</span>
+                : (startLocalVal !== startValue || maxLocalVal !== maxValue
+                    ? <span>Enter set</span>
+                    : <DisplayCounter count={count} />
+                )
+            }
             <div className={s.wrapper}>
-                <Button disabled={count === 5} onClick={inc} title='Inc' />
-                <Button disabled={count === 0} onClick={resetConter} title='Reset' />
+                <Button disabled={count === maxValue || maxLocalVal < 0 || startLocalVal < 0 || startValue !== startLocalVal || maxValue !== maxLocalVal || startLocalVal === maxLocalVal} onClick={inc} title='Inc' />
+                <Button disabled={count === startValue || maxLocalVal < 0 || startLocalVal < 0 || startValue !== startLocalVal || maxValue !== maxLocalVal || startLocalVal === maxLocalVal} onClick={resetConter} title='Reset' />
             </div>
         </div>
     );
